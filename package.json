@@ -1,10 +1,10 @@
 {
   "name": "http-proxy-toggle",
   "displayName": "http-proxy-toggle",
-  "description": "VSCodeの設定にあるHTTPプロキシ設定をショートカットキーで切り替える",
+  "description": "VS Codeの設定にあるHTTPプロキシ設定を簡単に切り替える拡張機能です",
   "publisher": "kita",
   "icon": "proxyIcon.png",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.89.0"
   },
@@ -15,19 +15,26 @@
     "property": "http",
     "command": "http-proxy-toggle.toggleProxy"
   },
-  "activationEvents": [],
+  "activationEvents": [
+    "*"
+  ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "title": "Toggle HTTP Proxy",
-        "command": "http-proxy-toggle.toggleProxy",
-        "when": "editorFocus",
-        "keybindings": [
-            { "key": "ctrl+shift+p" }
-        ]
+    "configuration": {
+      "title": "http-proxy-toggle",
+      "properties": {
+        "httpProxyToggle.home": {
+          "type": "string",
+          "description": "Home Http Proxy設定",
+          "default": ""
+        },
+        "httpProxyToggle.office": {
+          "type": "string",
+          "description": "Office Http Proxy設定",
+          "default": "http://proxy.example.com:80"
+        }
       }
-    ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

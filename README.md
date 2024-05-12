@@ -1,8 +1,14 @@
 # http proxy toggle
 
-VS Codeの設定にあるHTTPプロキシ設定をショートカットキーで切り替える
+VS Codeの設定にあるHTTPプロキシ設定を簡単に切り替える拡張機能です。
 
-ctrl+ship+pを押してコマンドパレットを開き、HTTP Proxy Toggle: Toggle Proxyと入力
+## 機能
 
-- proxyの設定が空⇒有
-- proxyの設定が有⇒空
+'Http Proxy: Home' 状態: クリックすると 'Office' に切り替え  
+'Http Proxy: Office' 状態: クリックすると 'Home' に切り替え  
+
+## 使い方
+
+拡張機能をインストールします。  
+ステータスバーに現在のプロキシ設定が表示されます。  
+クリックして、反対のプロキシ設定に切り替えます。

@@ -2,9 +2,13 @@
   "name": "http-proxy-toggle",
   "displayName": "http-proxy-toggle",
   "description": "VS Codeの設定にあるHTTPプロキシ設定を簡単に切り替える拡張機能です",
-  "publisher": "kita",
+  "publisher": "with-ai-life",
   "icon": "proxyIcon.png",
-  "version": "0.0.4",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kita-develop/vscode-http-proxy-toggle.git"
+  },
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.89.0"
   },

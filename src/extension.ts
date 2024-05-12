@@ -2,8 +2,8 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 const settings = vscode.workspace.getConfiguration('httpProxyToggle');
-const home = settings.get('home') as string;
-const office = settings.get('office') as string;
+let home = settings.get('home') as string;
+let office = settings.get('office') as string;
 
 let currentProxy = vscode.workspace.getConfiguration('http').get<string>('proxy');
 const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignment.Left);
@@ -35,6 +35,17 @@ function toggleProxy() {
 }
 
 updateStatusBar(currentProxy as string);
+
+vscode.workspace.onDidChangeConfiguration(event => {
+    if (event.affectsConfiguration('httpProxyToggle.home')) {
+        home = vscode.workspace.getConfiguration().get('httpProxyToggle.home') ?? '';
+        updateStatusBar(currentProxy as string);
+    }
+    else if (event.affectsConfiguration('httpProxyToggle.office')) {
+        office = vscode.workspace.getConfiguration().get('httpProxyToggle.office') ?? '';
+        updateStatusBar(currentProxy as string);
+    }
+});
 
 vscode.commands.registerCommand('httpProxyToggle.toggle', toggleProxy);
 

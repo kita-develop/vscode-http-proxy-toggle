@@ -10,11 +10,16 @@ const statusBarItem = vscode.window.createStatusBarItem(vscode.StatusBarAlignmen
 statusBarItem.command = 'httpProxyToggle.toggle';
 
 function updateStatusBar(currentProxy: string) {
-    let currentStatus = 'Http Proxy: Office';
-    if (currentProxy === ``) {
-        currentStatus = 'Http Proxy: Home';
+    let currentStatus = '$(briefcase)'; // Office用のアイコン
+    let hoverText = 'Http Proxy: Office'; // Office用のホバーテキスト
+
+    if (currentProxy === home) {
+        currentStatus = '$(home)'; // Home用のアイコン
+        hoverText = 'Http Proxy: Home'; // Home用のホバーテキスト
     }
+
     statusBarItem.text = currentStatus;
+    statusBarItem.tooltip = hoverText + '[' + currentProxy + ']'; // ホバーテキストを設定
     statusBarItem.show();
 }
 
